@@ -1,34 +1,12 @@
-import java.util.*;
-public class SelectionSort {
-    public static void main(String[] args) {
-        int i, j;
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number of elements:");
-        int n = sc.nextInt();
-        int arr[] = new int[n];
-        System.out.print("Enter " + n + " elements:");
-        for (i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
-        }
-        System.out.print("Elements before Sort:");
-
-        System.out.print(Arrays.toString(arr));
-
-        for (i = 0; i < n - 1; i++) {
-            for (j = i + 1; j < n; j++) {
-                if (arr[i] > arr[j]) {
-                    int temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
+public static void selectionSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1 ; i++) {
+            int min_index=i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[min_index] > arr[j]) {
+                    min_index=j;
                 }
             }
+            swap(arr,i,min_index);
         }
-        System.out.print("\nElements After Sort:");
-        System.out.print(Arrays.toString(arr));
-
     }
-}
-
-
-
-
+ 
