@@ -1,0 +1,33 @@
+public class Quick {
+	static void quickSort(int[] arr,int low,int high) {
+	   if(low>=high) {
+		   return;
+	   }
+	   int k= partition(arr,low,high);
+	   quickSort(arr,low,k-1);
+	   quickSort(arr,k,high);
+	   
+   }
+   static int partition(int arr[],int low,int high) {
+	   int pivot = arr[(low+high)/2];
+	   int leftPointer = low;
+	   int rightPointer = high;
+	   while(leftPointer<=rightPointer) {
+		   while(arr[leftPointer]<pivot) {
+			   leftPointer++;
+		   }
+		   while(arr[rightPointer]>pivot) {
+			   rightPointer--;
+		   }
+		   if(leftPointer<=rightPointer) {
+			   int temp = arr[leftPointer];
+			   arr[leftPointer]=arr[rightPointer];
+			   arr[rightPointer]=temp;
+			   leftPointer++;
+			   rightPointer--;
+		   }
+		}
+	   return leftPointer;
+	}
+}
+
